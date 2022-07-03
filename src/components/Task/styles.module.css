@@ -14,15 +14,23 @@
   color: var(--gray-100);
 }
 
+.task + .task {
+  margin-top: 12px;
+}
+
 .task button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.task svg {
+.task button svg {
   width: 24px;
   height: 24px;
+}
+
+.task button:last-of-type {
+  margin-left: auto;
 }
 
 .task button:first-of-type svg {

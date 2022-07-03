@@ -1,31 +1,40 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
-import { useState } from "react";
+
 import styles from "./styles.module.css";
 
-export function Task() {
-  const [isComplete, setComplete] = useState(false);
+interface TaskProps {
+  id: string;
+  title: string;
+  isCompleted: boolean;
+  onDelete: (id: string) => void;
+  onToggle: (id: string) => void;
+}
 
+export function Task({
+  id,
+  title,
+  isCompleted,
+  onDelete,
+  onToggle,
+}: TaskProps) {
   function handleCheck() {
-    setComplete((prevState) => !prevState);
+    onToggle(id);
   }
 
-  function handleDelete() {}
+  function handleDelete() {
+    onDelete(id);
+  }
 
-  const className = isComplete
+  const className = isCompleted
     ? styles.task.concat(` ${styles.completed}`)
     : styles.task;
 
   return (
     <li className={className}>
       <button onClick={handleCheck}>
-        {isComplete ? <CheckCircle weight="fill" /> : <Circle />}
+        {isCompleted ? <CheckCircle weight="fill" /> : <Circle />}
       </button>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni
-        delectus dolorum veritatis dolorem inventore, debitis quaerat, nemo
-        libero fugit, possimus aliquid? Fugit veritatis facere nisi expedita
-        sed. Excepturi, temporibus.
-      </p>
+      <p>{title}</p>
       <button onClick={handleDelete}>
         <Trash />
       </button>
