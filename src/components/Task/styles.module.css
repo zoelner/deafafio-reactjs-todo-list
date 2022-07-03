@@ -1,0 +1,47 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+
+  background: var(--gray-500);
+
+  border: 1px solid var(--gray-400);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+
+  color: var(--gray-100);
+}
+
+.task button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.task svg {
+  width: 24px;
+  height: 24px;
+}
+
+.task button:first-of-type svg {
+  color: var(--blue);
+}
+
+.task button:last-of-type svg {
+  color: var(--gray-300);
+}
+
+.task button:last-of-type svg:hover {
+  color: var(--danger);
+}
+
+.completed p {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.completed button:first-of-type svg {
+  color: var(--purple-dark);
+}
